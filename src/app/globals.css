@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  input[type='search']::-webkit-search-cancel-button,
+  input[type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input::placeholder {
+    color: var(--text-500);
+  }
+
+  input:-webkit-autofill,
+  input:focus:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px var(--bg-secondary) inset;
+  }
+
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .mini-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e0e4e9;
+    border-radius: 8px;
+  }
+}
+
+:root {
+  /* gray */
+  --gray-0: #fff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5fa;
+  --gray-200: #e3e8ef;
+  --gray-300: #cdd5df;
+  --gray-400: #9aa4b2;
+  --gray-500: #697586;
+  --gray-600: #4b5565;
+  --gray-700: #364152;
+  --gray-800: #202939;
+  --gray-900: #121926;
+
+  --bg-primary-light: #F0F1F3;
+  --bg-primary-dark: #222;
+  --bg-black: #000000;
+  --bg-success: #EBF7E8;
+  --bg-warning: #FBFFCE;
+  --bg-in-progress: #DCFBFF;
+
+  --color-success: #34AB16;
+  --color-warning: #99A700;
+  --color-in-progress: #29B2C5;
+  
+  --background-light: var(--bg-primary-light);
+  --background-card-light: #fff;
+  --background-header-light: var(--bg-black);
+  --background-footer-light: var(--bg-black);
+  --text-primary-light: var(--bg-black);
+  --text-title-light: #2A313A;
+  --text-blue-light: #64748B;
+
+  --background-dark: var(--bg-primary-dark);
+  --background-card-dark: var(--bg-black);
+  --background-header-dark: var(--bg-primary-light);
+  --background-footer-dark: var(--bg-primary-light);
+  --text-primary-dark: var(--bg-primary-light);
+  --text-title-dark: #fff;
+  --text-blue-dark: #64748B;
+
+  --bg-100: var(--gray-100);
+  --border-200: var(--gray-200);
+  --text-900: var(--gray-900);
+  --text-700: var(--gray-700);
+  --text-500: var(--gray-500);
+  --text-600: var(--gray-600);
+}
+
+[data-theme='light'] {
+  --background: var(--background-light);
+  --background-card: var(--background-card-light);
+  --background-header: var(--background-header-light);
+  --background-footer: var(--background-footer-light);
+  --text-primary: var(--text-primary-light);
+  --text-header: var(--background-light);
+  --text-title: var(--text-title-light);
+  --text-blue: var(--text-blue-light);
+}
+
+[data-theme='dark'] {
+  --background-card: var(--background-card-dark);
+  --background: var(--background-dark);
+  --background-header: var(--background-header-dark);
+  --background-footer: var(--background-footer-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-header: var(--background-dark);
+  --text-title: var(--text-title-dark);
+  --text-blue: var(--text-blue-dark);
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background);
+  font-size: 16px;
+}
+
+#pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+#pagination .swiper-pagination-bullet {
+  background: #FAFAFA;
+  opacity: 1;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+#pagination .swiper-pagination-bullet.bullet-active {
+  background: #000;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
