@@ -21,7 +21,7 @@ const ComicDetail = ({ params }: Props) => {
         <AppLayoutWithSidebar>
           <div className='py-4'>
             <ComicInfo detail={detail} />
-            <TabComicDetail />
+            <TabComicDetail slug={params.slug} />
           </div>
         </AppLayoutWithSidebar>
       </AppContainer>
