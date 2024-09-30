@@ -9,7 +9,7 @@ import type { ITabItem } from '@/utils/interface/ITabItem'
 import TabChapter from './tab/tab-chapter'
 import TabDescription from './tab/tab-description'
 
-const TabComicDetail = () => {
+const TabComicDetail = ({ slug }: { slug: string }) => {
   const TAB_COMIC: ITabItem[] = [
     {
       key: 'description',
@@ -19,7 +19,7 @@ const TabComicDetail = () => {
     {
       key: 'chapter',
       title: 'Chương',
-      content: <TabChapter />,
+      content: <TabChapter slug={slug} />,
     },
   ]
   return (

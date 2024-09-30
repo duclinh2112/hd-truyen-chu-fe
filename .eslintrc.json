@@ -53,7 +53,8 @@
         "@typescript-eslint/no-use-before-define": ["off"],
         "no-param-reassign": 0,
         "import/no-cycle": "off",
-        "tailwindcss/migration-from-tailwind-2": "off"
+        "tailwindcss/migration-from-tailwind-2": "off",
+        "tailwindcss/no-custom-classname": "off"
       }
     }
   ],

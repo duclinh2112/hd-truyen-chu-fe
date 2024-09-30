@@ -75,6 +75,18 @@
     background-color: #e0e4e9;
     border-radius: 8px;
   }
+
+  .watch-content > * {
+    background-color: var(--background-color-watch);
+    color: var(--text-color-watch);
+    font-size: var(--font-size-watch);
+    line-height: var(--line-height-watch);
+    font-family: var(--font-family-watch);
+    margin: 30px 0;
+    padding: 0;
+    font-weight: 400;
+    word-break: break-word;
+  }
 }
 
 :root {

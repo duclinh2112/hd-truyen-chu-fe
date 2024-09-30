@@ -2,10 +2,49 @@ import './globals.css'
 
 import { NextUIProvider } from '@nextui-org/react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import {
+  Dancing_Script,
+  Inter,
+  Merienda,
+  Oswald,
+  Playpen_Sans,
+  Sansita,
+  Space_Grotesk,
+  Tourney,
+  Unbounded,
+} from 'next/font/google'
 import React from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
+const merienda = Merienda({ subsets: ['latin'], variable: '--font-merienda' })
+const sansita = Sansita({
+  subsets: ['latin'],
+  weight: ['400', '700', '800', '900'],
+  variable: '--font-sansita',
+})
+const playpenSans = Playpen_Sans({
+  subsets: ['latin'],
+  variable: '--font-playpenSans',
+})
+const unbounded = Unbounded({
+  subsets: ['latin'],
+  variable: '--font-unbounded',
+})
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-spaceGrotesk',
+})
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  variable: '--font-dancingScript',
+})
+
+const tourney = Tourney({
+  subsets: ['latin'],
+  variable: '--font-tourney',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,7 +61,11 @@ export default async function RootLayout({
   children,
 }: Readonly<RootLayoutProps>) {
   return (
-    <html lang='vi' data-theme='light'>
+    <html
+      lang='vi'
+      data-theme='light'
+      className={`${sansita.variable} ${inter.variable} ${tourney.variable} ${oswald.variable} ${dancingScript.variable} ${spaceGrotesk.variable} ${unbounded.variable} ${merienda.variable} ${playpenSans.variable}`}
+    >
       <body className={inter.className}>
         <NextUIProvider>{children}</NextUIProvider>
       </body>
