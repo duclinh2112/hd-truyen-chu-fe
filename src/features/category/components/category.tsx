@@ -15,14 +15,14 @@ const CategoryList = ({
   )
   return (
     <div className='pb-4'>
-      <div className='flex items-center'>
+      <div className='flex w-full items-center overflow-x-auto'>
         {CATEGORIES.map((item, idx) => {
           const isActive = slug == item.slug
           return (
             <div key={idx} className='flex items-center'>
               <Link
                 href={`/danh-muc/${item.slug}`}
-                className={`text-[18px] ${
+                className={`whitespace-nowrap text-[18px] ${
                   isActive ? 'font-bold text-black' : 'font-normal text-main'
                 }`}
               >
@@ -35,9 +35,9 @@ const CategoryList = ({
           )
         })}
       </div>
-      <div className='mt-6 flex'>
+      <div className='mt-6 flex max-lg:flex-col max-lg:gap-4'>
         <div className='w-[150px] font-semibold'>Danh mục</div>
-        <div className='flex items-center gap-x-8 gap-y-3'>
+        <div className='flex flex-wrap items-center gap-3 lg:gap-x-8'>
           <div
             className={`flex h-6 items-center justify-center rounded-[18px] px-3 ${
               !slugChild ? 'bg-header' : ''

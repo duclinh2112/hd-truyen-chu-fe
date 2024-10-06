@@ -8,7 +8,7 @@ type AppContainerProps = {
 
 const AppContainer = ({ children, className = '' }: AppContainerProps) => {
   return (
-    <div className={`mx-auto w-full max-w-container max-md:px-3 ${className}`}>
+    <div className={`mx-auto w-full max-w-container px-3 ${className}`}>
       {children}
     </div>
   )

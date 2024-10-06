@@ -3,32 +3,23 @@ import React from 'react'
 import type { IIconProps } from '../IIconProps'
 
 const IconSearch = ({
-  width = '17',
-  height = '16',
+  width = '16',
   color = 'currentColor',
   className,
 }: IIconProps) => {
   return (
     <svg
       width={width}
-      height={height}
-      viewBox='0 0 17 16'
+      height={width}
+      viewBox='0 0 512 512'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
       color={color}
       className={className}
     >
       <path
-        d='M7.98399 14C11.4818 14 14.3173 11.1645 14.3173 7.66668C14.3173 4.16887 11.4818 1.33334 7.98399 1.33334C4.48619 1.33334 1.65066 4.16887 1.65066 7.66668C1.65066 11.1645 4.48619 14 7.98399 14Z'
-        stroke='currentColor'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M14.984 14.6667L13.6507 13.3333'
-        stroke='currentColor'
-        strokeLinecap='round'
-        strokeLinejoin='round'
+        d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'
+        fill='currentColor'
       />
     </svg>
   )

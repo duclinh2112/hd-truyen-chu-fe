@@ -32,50 +32,10 @@ export const fonts = [
   },
   {
     label: 'Roboto',
-    value: 'Roboto',
+    value: 'var(--font-roboto)',
   },
   {
     label: 'Inter',
     value: 'var(--font-inter)',
-  },
-  {
-    label: 'Tourney',
-    value: 'var(--font-tourney)',
-  },
-  {
-    label: 'Oswald',
-    value: 'var(--font-oswald)',
-  },
-  {
-    label: 'Dancing Script',
-    value: 'var(--font-dancingScript)',
-  },
-  {
-    label: 'Space Grotesk',
-    value: 'var(--font-spaceGrotesk)',
-  },
-  {
-    label: 'Unbounded',
-    value: 'var(--font-unbounded)',
-  },
-  {
-    label: 'Merienda',
-    value: 'var(--font-merienda)',
-  },
-  {
-    label: 'PlaypenSans',
-    value: 'var(--font-playpenSans)',
-  },
-  {
-    label: 'Sansita',
-    value: 'var(--font-sansita)',
-  },
-  {
-    label: 'System ui',
-    value: 'system-ui',
-  },
-  {
-    label: 'Cursive',
-    value: 'cursive',
   },
 ]

@@ -1,15 +1,14 @@
 import React from 'react'
 
-import useSettings from '@/utils/hooks/useSettings'
+import type { ISetting } from '@/utils/interface/ISetting'
 
-import WatchMainContent from './main-content'
-import WatchMainTop from './main-top'
+import WatchMainContent from './main/main-content'
+import WatchMainTop from './main/main-top'
 
-const WatchMain = () => {
-  const { settings } = useSettings()
+const WatchMain = ({ settings }: { settings: ISetting }) => {
   return (
     <div
-      className='mx-auto mt-[72px] w-full max-w-[860px] border border-[#eeeeee] pb-[100px]'
+      className='bt-0 mx-auto mt-[52px] w-full max-w-[860px] border-t-0 border-[#eeeeee] pb-[60px] md:mt-[72px] md:border md:pb-[100px]'
       style={{
         backgroundColor: settings.background,
         borderColor: settings.borderColor,

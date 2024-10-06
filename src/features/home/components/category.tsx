@@ -20,7 +20,7 @@ const Category = () => {
             }
           />
         </div>
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-x-4 gap-y-2'>
           {CATEGORIES.slice(-10).map((item, idx) => (
             <Link
               href={`/danh-muc/${item.slug}`}

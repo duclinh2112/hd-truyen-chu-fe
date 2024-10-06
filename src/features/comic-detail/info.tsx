@@ -10,7 +10,7 @@ const ComicInfo = ({ detail }: { detail?: IComic }) => {
   const { title, image, view } = detail || {}
   return (
     <Card>
-      <div className='flex gap-4'>
+      <div className='flex gap-4 max-lg:flex-col'>
         <div className='relative w-[174px]'>
           <ImageWrap
             src={`/assets/images/${image?.name}`}
@@ -27,7 +27,7 @@ const ComicInfo = ({ detail }: { detail?: IComic }) => {
         </div>
         <div className='flex-1'>
           <h2 className='text-[20px] font-semibold'>{title}</h2>
-          <div className='mt-4 grid grid-cols-2 gap-2'>
+          <div className='mt-4 grid gap-2 lg:grid-cols-2'>
             <div className='flex items-center gap-2 text-[14px] font-medium'>
               <span>Tác giả:</span>
               <span className='text-text-blue'>Nguyễn Cao Nam</span>

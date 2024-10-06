@@ -8,7 +8,7 @@ import { NAVIGATION } from '@/utils/constants'
 const Menu = () => {
   const pathname = usePathname()
   return (
-    <ul className='flex items-center gap-10'>
+    <ul className='hidden items-center gap-10 lg:flex'>
       {NAVIGATION.map((item, key) => {
         const active = pathname.split('/', 2).join('/') === item.path
         return (
