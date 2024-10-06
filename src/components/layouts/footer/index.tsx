@@ -10,9 +10,9 @@ import AppContainer from '../container'
 
 const Footer = () => {
   return (
-    <div className='bg-footer px-[64px] py-[32px] text-header'>
+    <div className='bg-footer p-3 py-[32px] text-header lg:px-[64px]'>
       <AppContainer>
-        <div className='flex flex-row justify-between'>
+        <div className='flex flex-col justify-between max-lg:gap-6 lg:flex-row'>
           <div className='flex flex-col items-start gap-[32px]'>
             <div>
               <Link href='/'>
@@ -29,7 +29,7 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div className='flex w-[667px] flex-col items-start gap-[16px]'>
+          <div className='flex w-full flex-col items-start gap-[16px] lg:w-[667px]'>
             <div className='flex flex-row flex-wrap gap-[8px]'>
               {TAG_FOOTER.map((tag) => (
                 <Tag key={tag.id} content={tag.content} />

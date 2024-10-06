@@ -7,7 +7,7 @@ import IconSearch from '@/components/icons/search'
 
 const Search = () => {
   return (
-    <div className='flex h-10 w-[450px] items-center rounded-lg bg-white px-3'>
+    <div className='hidden h-10 w-[350px] items-center rounded-lg bg-white px-3 lg:flex'>
       <span>
         <IconSearch className='text-main' />
       </span>

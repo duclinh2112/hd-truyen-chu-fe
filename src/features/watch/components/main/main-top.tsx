@@ -16,20 +16,20 @@ const WatchMainTop = ({ settings }: WatchMainTopProps) => {
 
   return (
     <div
-      className='mx-auto mt-[72px] flex w-full max-w-[720px] flex-col items-center border-b border-[#eee] pb-[72px]'
+      className='mx-auto mt-[52px] flex w-full max-w-[720px] flex-col items-center border-b border-[#eee] pb-[40px] md:mt-[72px] md:pb-[72px]'
       style={{
         borderColor: settings.borderColor,
         color: settings.color,
       }}
     >
-      <div className='h-[326px] w-[234px]'>
+      <div className='mt-10 h-[160px] w-[120px] md:mt-[72px] md:h-[326px] md:w-[234px]'>
         <ImageWrap
           src={`/assets/images/${comic?.image.name}`}
           borderRadius='8px'
           paddingTop='140%'
         />
       </div>
-      <p className='mx-[30px] mb-0 mt-12 text-center text-[30px] font-bold'>
+      <p className='mx-[30px] mb-0 mt-12 text-center font-bold md:text-[30px]'>
         {comic?.title}
       </p>
     </div>

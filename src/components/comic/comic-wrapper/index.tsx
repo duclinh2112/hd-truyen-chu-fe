@@ -20,7 +20,7 @@ const ComicWrapper = ({
   title,
   children,
   seeMore,
-  className,
+  className = '',
 }: ComicWrapperProps) => {
   return (
     <div className={`py-4 ${className}`}>

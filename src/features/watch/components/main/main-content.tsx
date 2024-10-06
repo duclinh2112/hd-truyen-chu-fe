@@ -15,8 +15,11 @@ const WatchMainContent = ({ settings }: WatchMainContentProps) => {
   const { id } = params
   const chapter = CHAPTER.find((item) => item.id == Number(id))
   return (
-    <div className='mx-[70px] mb-10 mt-12'>
-      <h1 className='mb-8 text-2xl font-bold' style={{ color: settings.color }}>
+    <div className='mx-3 mb-10 mt-12 md:mx-[70px]'>
+      <h1
+        className='mb-8 text-[18px] font-bold md:text-2xl'
+        style={{ color: settings.color }}
+      >
         {chapter?.title}
       </h1>
       <WatchContent settings={settings} />

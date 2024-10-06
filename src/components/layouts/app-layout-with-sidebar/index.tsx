@@ -8,7 +8,7 @@ type AppLayoutWithSidebarProps = {
 
 const AppLayoutWithSidebar = ({ children }: AppLayoutWithSidebarProps) => {
   return (
-    <div className='grid grid-cols-12 gap-4'>
+    <div className='max-lg grid grid-cols-12 gap-x-4 pb-8'>
       <div className='col-span-12 lg:col-span-9'>{children}</div>
       <div className='col-span-12 lg:col-span-3'>
         <Sidebar />
