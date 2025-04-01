@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ItemComic from '@/components/comic/item-comic'
-import type { IComic } from '@/utils/interface/IComic'
+import type { IComic } from '@/utils/types/interface/IComic'
 
 const Comic = ({ data }: { data: IComic[] }) => {
   return (

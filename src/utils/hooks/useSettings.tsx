@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { colors } from '../constants/setting'
-import type { ISetting } from '../interface/ISetting'
+import type { ISetting } from '../types/interface/ISetting'
 
 const useSettings = () => {
   const [settings, setSettings] = useState<ISetting>({

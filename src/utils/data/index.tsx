@@ -3,8 +3,8 @@ import IMAGE_SLIDER_1 from '@assets/images/img-slider-1.png'
 import IMAGE_SLIDER_2 from '@assets/images/img-slider-2.png'
 import IMAGE_SLIDER_3 from '@assets/images/img-slider-3.png'
 
-import type { ICategory } from '../interface/ICategory'
-import type { IComic } from '../interface/IComic'
+import type { ICategory } from '../types/interface/ICategory'
+import type { IComic } from '../types/interface/IComic'
 
 export const SLIDER_BANNER = [
   {

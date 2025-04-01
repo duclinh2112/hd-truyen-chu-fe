@@ -1,18 +1,36 @@
 import React from 'react'
 
 import AppContainer from '@/components/layouts/container'
+import type { ICategory } from '@/utils/types/interface/ICategory'
+import type { IComic } from '@/utils/types/interface/IComic'
 
 import Banner from './components/banner'
 import Category from './components/category'
 import HomeContent from './components/content'
 
-const HomeContainer = () => {
+type HomeContainerProps = {
+  dataComicRecommends?: IComic[]
+  dataComicHots?: IComic[]
+  dataComicFulls?: IComic[]
+  dataCategories?: ICategory[]
+}
+
+const HomeContainer = ({
+  dataComicRecommends,
+  dataComicHots,
+  dataComicFulls,
+  dataCategories,
+}: HomeContainerProps) => {
   return (
     <>
       <Banner />
       <AppContainer>
-        <Category />
-        <HomeContent />
+        <Category dataCategories={dataCategories} />
+        <HomeContent
+          dataComicRecommends={dataComicRecommends}
+          dataComicHots={dataComicHots}
+          dataComicFulls={dataComicFulls}
+        />
       </AppContainer>
     </>
   )

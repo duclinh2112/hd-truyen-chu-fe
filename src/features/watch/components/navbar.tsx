@@ -5,13 +5,18 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 
 import IconArrowLeft from '@/components/icons/arrow-left'
-import { COMICS } from '@/utils/data'
-import type { ISetting } from '@/utils/interface/ISetting'
+import type { IComic } from '@/utils/types/interface/IComic'
+import type { ISetting } from '@/utils/types/interface/ISetting'
 
-const Navbar = ({ settings }: { settings: ISetting }) => {
+const Navbar = ({
+  comic,
+  settings,
+}: {
+  comic?: IComic
+  settings: ISetting
+}) => {
   const params = useParams()
   const { slug } = params
-  const title = COMICS.find((item) => item.slug == String(slug))?.title ?? ''
 
   return (
     <div
@@ -23,13 +28,13 @@ const Navbar = ({ settings }: { settings: ISetting }) => {
       }}
     >
       <div className='mx-auto flex size-full max-w-[860px] items-center justify-between gap-4'>
-        <Link href={`/${slug}`} className='inline-flex items-center'>
+        <Link href={`/${slug || '#'}`} className='inline-flex items-center'>
           <span className='inline-flex size-5 md:size-[30px]'>
             <IconArrowLeft width={'100%'} />
           </span>
         </Link>
         <div className='line-clamp-1 text-[16px] font-medium md:text-[24px]'>
-          {title}
+          {comic?.name}
         </div>
         <Link href='/' className='max-md:hidden'>
           <Image src={LOGO} alt='Động truyện' width={65} height={32} />

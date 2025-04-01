@@ -1,13 +1,13 @@
 import type { HTMLAttributes } from 'react'
 import React from 'react'
 
-import type { IComic } from '@/utils/interface/IComic'
+import type { IComic } from '@/utils/types/interface/IComic'
 
 import ComicWrapper from '../comic-wrapper'
 import ItemComic from '../item-comic'
 
 type ListComicWrapperProps = {
-  icon: React.ReactNode
+  icon?: React.ReactNode
   title: string
   data: IComic[]
   seeMore?: string

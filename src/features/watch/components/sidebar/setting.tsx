@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { colors, fonts } from '@/utils/constants/setting'
-import type { ISetting } from '@/utils/interface/ISetting'
+import type { ISetting } from '@/utils/types/interface/ISetting'
 
 const Setting = ({
   settings,

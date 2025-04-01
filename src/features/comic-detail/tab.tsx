@@ -4,17 +4,23 @@ import React from 'react'
 
 import Card from '@/components/common/card'
 import Tabs from '@/components/common/tabs'
-import type { ITabItem } from '@/utils/interface/ITabItem'
+import type { ITabItem } from '@/utils/types/interface/ITabItem'
 
 import TabChapter from './tab/tab-chapter'
 import TabDescription from './tab/tab-description'
 
-const TabComicDetail = ({ slug }: { slug: string }) => {
+const TabComicDetail = ({
+  slug,
+  description,
+}: {
+  slug: string
+  description: string
+}) => {
   const TAB_COMIC: ITabItem[] = [
     {
       key: 'description',
       title: 'Giới thiệu',
-      content: <TabDescription />,
+      content: <TabDescription description={description} />,
     },
     {
       key: 'chapter',

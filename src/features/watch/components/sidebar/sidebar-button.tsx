@@ -2,7 +2,7 @@ import React from 'react'
 
 import IconList from '@/components/icons/list'
 import IconSetting from '@/components/icons/setting'
-import type { ISetting } from '@/utils/interface/ISetting'
+import type { ISetting } from '@/utils/types/interface/ISetting'
 
 type SidebarButtonProps = {
   settings: ISetting

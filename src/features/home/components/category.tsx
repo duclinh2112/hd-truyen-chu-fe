@@ -4,9 +4,9 @@ import React from 'react'
 import Card from '@/components/common/card'
 import TextWithIcon from '@/components/common/text-with-icon'
 import IconFlash from '@/components/icons/flash-icon'
-import { CATEGORIES } from '@/utils/data'
+import type { ICategory } from '@/utils/types/interface/ICategory'
 
-const Category = () => {
+const Category = ({ dataCategories }: { dataCategories?: ICategory[] }) => {
   return (
     <div className='py-4'>
       <Card>
@@ -21,15 +21,17 @@ const Category = () => {
           />
         </div>
         <div className='flex flex-wrap gap-x-4 gap-y-2'>
-          {CATEGORIES.slice(-10).map((item, idx) => (
-            <Link
-              href={`/danh-muc/${item.slug}`}
-              key={idx}
-              className='text-text-blue hover:underline'
-            >
-              {item.title}
-            </Link>
-          ))}
+          {dataCategories?.length
+            ? dataCategories.map((item, idx) => (
+                <Link
+                  href={`/danh-sach/${item.slug}`}
+                  key={idx}
+                  className='text-text-blue hover:underline'
+                >
+                  {item.name}
+                </Link>
+              ))
+            : null}
         </div>
       </Card>
     </div>

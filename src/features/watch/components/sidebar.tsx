@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 
 import { useClickOutside } from '@/utils/hooks/useClickOutside'
-import type { ISetting } from '@/utils/interface/ISetting'
+import type { ISetting } from '@/utils/types/interface/ISetting'
 
 import ListChapter from './sidebar/list-chapter'
 import Setting from './sidebar/setting'
