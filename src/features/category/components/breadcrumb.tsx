@@ -30,7 +30,7 @@ const Breadcrumbs = ({ title }: BreadcrumbsProps) => {
         CHILD_CATEGORIES.find((item) => item.slug === path)
 
       return {
-        breadcrumb: category ? category.title : path.replace('-', ' '),
+        breadcrumb: category ? category.name : path.replace('-', ' '),
         href: '/' + linkPath.slice(0, i + 1).join('/'),
       }
     })

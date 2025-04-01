@@ -6,6 +6,7 @@ type ImageWrapProps = {
   alt?: string
   paddingTop?: string
   borderRadius?: string
+  sizes?: string
 }
 
 const ImageWrap = ({
@@ -13,6 +14,7 @@ const ImageWrap = ({
   alt,
   paddingTop = '56.25%',
   borderRadius,
+  sizes = '(max-width: 768px) 100vw, 50vw',
 }: ImageWrapProps) => {
   return (
     <div
@@ -24,6 +26,8 @@ const ImageWrap = ({
         src={src}
         alt={alt || ''}
         style={{ borderRadius, objectFit: 'cover' }}
+        sizes={sizes}
+        priority
       />
     </div>
   )

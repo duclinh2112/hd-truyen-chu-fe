@@ -3,28 +3,45 @@ import React from 'react'
 import ListComicWrapper from '@/components/comic/list-comic-wrapper'
 import IconFlash2 from '@/components/icons/flash'
 import AppLayoutWithSidebar from '@/components/layouts/app-layout-with-sidebar'
-import { COMICS } from '@/utils/data'
+import type { IComic } from '@/utils/types/interface/IComic'
 
-const HomeContent = () => {
+type HomeContentProps = {
+  dataComicRecommends?: IComic[]
+  dataComicHots?: IComic[]
+  dataComicFulls?: IComic[]
+}
+
+const HomeContent = ({
+  dataComicRecommends,
+  dataComicHots,
+  dataComicFulls,
+}: HomeContentProps) => {
+  const searchParams = (param: string) => {
+    const currentParams = new URLSearchParams()
+    currentParams.set('filter', JSON.stringify({ [param]: true }))
+
+    return currentParams.toString()
+  }
+
   return (
     <AppLayoutWithSidebar>
       <ListComicWrapper
         icon={<IconFlash2 />}
         title='Truyện Đề Cử'
-        data={COMICS.slice(0, 12)}
-        seeMore='/'
+        data={dataComicRecommends?.slice(0, 12) || []}
+        seeMore={`danh-sach?${searchParams('isRecommend')}`}
       />
       <ListComicWrapper
         icon={<IconFlash2 />}
-        title='Truyện BTV Đề xuất'
-        data={COMICS.slice(-12)}
-        seeMore='/'
+        title='Truyện Hot'
+        data={dataComicHots?.slice(0, 12) || []}
+        seeMore={`danh-sach?${searchParams('isHot')}`}
       />
       <ListComicWrapper
         icon={<IconFlash2 />}
-        title='Đề xuất truyện full'
-        data={COMICS.slice(-12)}
-        seeMore='/'
+        title='Truyện full'
+        data={dataComicFulls?.slice(0, 12) || []}
+        seeMore={`danh-sach?${searchParams('isFull')}`}
       />
     </AppLayoutWithSidebar>
   )

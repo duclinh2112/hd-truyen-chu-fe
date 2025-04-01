@@ -4,7 +4,7 @@ const button = tv({
   base: 'flex items-center justify-center gap-2 font-medium',
   variants: {
     color: {
-      primary: '',
+      primary: 'bg-header text-header',
       secondary: '',
       success: '',
       danger: '',
@@ -37,7 +37,7 @@ const button = tv({
     {
       color: 'primary',
       variant: 'default',
-      className: 'bg-primary hover:bg-primary',
+      className: 'bg-header hover:bg-header',
     },
     {
       color: 'primary',
@@ -82,7 +82,7 @@ const button = tv({
     {
       color: 'success',
       variant: 'default',
-      className: 'hover:bg-success-700 bg-success-500 text-white',
+      className: 'bg-success-500 text-white hover:bg-success-700',
     },
     {
       color: 'success',

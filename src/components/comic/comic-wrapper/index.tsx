@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { HTMLAttributes } from 'react'
 import React from 'react'
 
@@ -8,7 +7,7 @@ import Card from '../../common/card'
 import TextWithIcon from '../../common/text-with-icon'
 
 type ComicWrapperProps = {
-  icon: React.ReactNode
+  icon?: React.ReactNode
   title: React.ReactNode
   children: React.ReactNode
   seeMore?: string
@@ -28,7 +27,7 @@ const ComicWrapper = ({
         <div className='mb-6 flex items-center justify-between'>
           <TextWithIcon icon={icon} content={title} />
           {seeMore && (
-            <Link
+            <a
               href={seeMore}
               className='flex items-center text-[14px] font-medium hover:underline'
             >
@@ -36,7 +35,7 @@ const ComicWrapper = ({
               <span className='inline-flex items-center'>
                 <IconArrowRight />
               </span>
-            </Link>
+            </a>
           )}
         </div>
         {children}

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 
-import { COMIC_CONTENT } from '@/utils/data'
-import type { ISetting } from '@/utils/interface/ISetting'
+import type { ISetting } from '@/utils/types/interface/ISetting'
 
 type WatchContentProps = {
+  content?: string
   settings: ISetting
 }
 
-const WatchContent = ({ settings }: WatchContentProps) => {
+const WatchContent = ({ content, settings }: WatchContentProps) => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       '--background-color-watch',
@@ -34,7 +34,7 @@ const WatchContent = ({ settings }: WatchContentProps) => {
   return (
     <div
       className='watch-content'
-      dangerouslySetInnerHTML={{ __html: COMIC_CONTENT }}
+      dangerouslySetInnerHTML={{ __html: content || '' }}
       style={{
         backgroundColor: settings.background,
         color: settings.color,
