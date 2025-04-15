@@ -9,7 +9,7 @@ export interface ILogin {
     birthday?: string
     photoId?: number
     status: boolean
+    roles: IRole[]
   }
-  roles: IRole[]
   token: IToken
 }

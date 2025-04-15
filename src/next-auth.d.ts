@@ -8,7 +8,7 @@ import type { IRole, IToken } from "./utils/types/interface/IAuth"
 
 
 interface IUser {
-  id: number
+  id: string
   fullName: string
   email: string
   phone: boolean
@@ -16,6 +16,7 @@ interface IUser {
   photoId?: number
   status: boolean
   roles: IRole[]
+  emailVerified?: boolean
 }
 
 declare module 'next-auth/jwt' {
