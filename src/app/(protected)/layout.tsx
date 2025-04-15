@@ -1,6 +1,7 @@
 import React from 'react'
 
-import AppLayout from '@/components/layouts/app-layout'
+import { auth } from '@/auth'
+import AppLayoutClient from '@/components/layouts/app-layout-client'
 
 import AppProvider from '../app-provider'
 
@@ -14,9 +15,11 @@ interface ProtectedLayoutProps {
 export default async function ProtectedLayout({
   children,
 }: ProtectedLayoutProps) {
+  const session = await auth()
+
   return (
     <AppProvider>
-      <AppLayout>{children}</AppLayout>
+      <AppLayoutClient session={session}>{children}</AppLayoutClient>
     </AppProvider>
   )
 }

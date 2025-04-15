@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
+import Google from 'next-auth/providers/google'
 
 import type { IUser } from './next-auth'
 import fetchApi from './services/fetch'
@@ -12,6 +13,48 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: '/login',
   },
   callbacks: {
+    signIn: async ({ user, account }) => {
+      if (account?.provider === 'google') {
+        const payload = {
+          fullName: user.name,
+          email: user.email,
+          providerAccountId: account.providerAccountId,
+          provider: 'google',
+        }
+        const res = await fetchApi<IDefaultResponse<ILogin>>(
+          'auth/login-provider',
+          {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+        )
+
+        if ('errorType' in res) {
+          throw new CustomAuthError(res.message)
+        }
+
+        const newUser = {
+          id: String(res.payload?.user?.id.toString()),
+          fullName: res.payload?.user?.fullName,
+          email: res.payload?.user?.email,
+          birthday: res.payload?.user?.birthday,
+          phone: res.payload?.user?.phone,
+          photoId: res.payload?.user?.photoId,
+          status: res.payload?.user?.status,
+          roles: res.payload?.user?.roles,
+          token: res.payload?.token,
+          emailVerified: true,
+        } as IUser
+
+        Object.assign(user, newUser)
+
+        return true
+      }
+      return true
+    },
     authorized: async ({ auth }) => {
       return !!auth
     },
@@ -55,10 +98,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           phone: res.payload?.user?.phone,
           photoId: res.payload?.user?.photoId,
           status: res.payload?.user?.status,
-          roles: res.payload?.roles,
+          roles: res.payload?.user?.roles,
           token: res.payload?.token,
         }
       },
     }),
+    Google,
   ],
 })
