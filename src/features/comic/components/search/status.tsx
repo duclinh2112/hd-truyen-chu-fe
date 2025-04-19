@@ -33,7 +33,7 @@ const Status = () => {
       <div className='w-[150px] font-semibold'>Trạng thái</div>
       <div className='flex flex-wrap items-center gap-3 lg:gap-x-8'>
         <div
-          className={`flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
+          className={`group flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
             isAnyActive() ? 'bg-header' : ''
           } hover:bg-header`}
           onClick={() => handleFilterClick()}
@@ -41,13 +41,13 @@ const Status = () => {
           <span
             className={`text-[14px] ${
               isAnyActive() ? 'text-primary' : 'text-main'
-            } leading-[24px] hover:text-primary`}
+            } leading-[24px] hover:text-primary group-hover:text-primary`}
           >
             Toàn bộ
           </span>
         </div>
         <div
-          className={`flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
+          className={`group flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
             isActive('isHot') ? 'bg-header' : ''
           } hover:bg-header`}
           onClick={() => handleFilterClick('isHot')}
@@ -55,13 +55,13 @@ const Status = () => {
           <span
             className={`text-[14px] ${
               isActive('isHot') ? 'text-primary' : 'text-main'
-            } leading-[24px] hover:text-primary`}
+            } leading-[24px] hover:text-primary group-hover:text-primary`}
           >
             Truyện hot
           </span>
         </div>
         <div
-          className={`flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
+          className={`group flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
             isActive('isRecommend') ? 'bg-header' : ''
           } hover:bg-header`}
           onClick={() => handleFilterClick('isRecommend')}
@@ -69,13 +69,13 @@ const Status = () => {
           <span
             className={`text-[14px] ${
               isActive('isRecommend') ? 'text-primary' : 'text-main'
-            } leading-[24px] hover:text-primary`}
+            } leading-[24px] hover:text-primary group-hover:text-primary`}
           >
             Truyện đề xuất
           </span>
         </div>
         <div
-          className={`flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
+          className={`group flex h-6 cursor-pointer items-center justify-center rounded-[18px] px-3 ${
             isActive('isFull') ? 'bg-header' : ''
           } hover:bg-header`}
           onClick={() => handleFilterClick('isFull')}
@@ -83,7 +83,7 @@ const Status = () => {
           <span
             className={`text-[14px] ${
               isActive('isFull') ? 'text-primary' : 'text-main'
-            } leading-[24px] hover:text-primary`}
+            } leading-[24px] hover:text-primary group-hover:text-primary`}
           >
             Truyện full
           </span>

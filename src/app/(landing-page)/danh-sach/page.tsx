@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import React from 'react'
 
-import AppLayout from '@/components/layouts/app-layout'
 import Breadcrumbs from '@/features/comic/components/breadcrumb'
 import ComicContainer from '@/features/comic/container'
+import { fetchCategories } from '@/services/fetch/category'
 import { fetchComics } from '@/services/fetch/comic'
 
 type Props = {
@@ -19,22 +19,28 @@ export const metadata: Metadata = {
 }
 
 export default async function ListPage({ searchParams }: Props) {
-  const dataComics = await fetchComics(
-    {
-      page: searchParams.page ?? 1,
-      perPage: 20,
-      filter: searchParams.filter,
-      sort: ['["createdAt", "DESC"]'],
-    },
-    {
-      cache: 'force-cache',
-    },
-  )
+  const [dataComics, dataCategories] = await Promise.all([
+    fetchComics(
+      {
+        page: searchParams.page ?? 1,
+        perPage: 20,
+        filter: searchParams.filter,
+        sort: ['["createdAt", "DESC"]'],
+      },
+      {
+        cache: 'force-cache',
+      },
+    ),
+    fetchCategories(),
+  ])
 
   return (
-    <AppLayout>
+    <>
       <Breadcrumbs title='Danh sách truyện' />
-      <ComicContainer dataComics={dataComics} />
-    </AppLayout>
+      <ComicContainer
+        dataComics={dataComics}
+        dataCategories={dataCategories?.content}
+      />
+    </>
   )
 }

@@ -12,6 +12,7 @@ type HomeContainerProps = {
   dataComicRecommends?: IComic[]
   dataComicHots?: IComic[]
   dataComicFulls?: IComic[]
+  dataTopComics?: IComic[]
   dataCategories?: ICategory[]
 }
 
@@ -19,6 +20,7 @@ const HomeContainer = ({
   dataComicRecommends,
   dataComicHots,
   dataComicFulls,
+  dataTopComics,
   dataCategories,
 }: HomeContainerProps) => {
   return (
@@ -30,6 +32,7 @@ const HomeContainer = ({
           dataComicRecommends={dataComicRecommends}
           dataComicHots={dataComicHots}
           dataComicFulls={dataComicFulls}
+          dataTopComics={dataTopComics}
         />
       </AppContainer>
     </>

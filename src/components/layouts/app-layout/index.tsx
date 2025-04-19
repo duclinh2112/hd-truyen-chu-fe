@@ -1,17 +1,16 @@
+import type { Session } from 'next-auth'
 import type { ReactNode } from 'react'
 import React from 'react'
-
-import { auth } from '@/auth'
 
 import Footer from '../footer'
 import Header from '../header'
 
 type AppLayoutProps = {
+  session: Session | null
   children: ReactNode
 }
 
-const AppLayout = async ({ children }: AppLayoutProps) => {
-  const session = await auth()
+const AppLayout = ({ session, children }: AppLayoutProps) => {
   return (
     <div className='size-full'>
       <Header session={session} />

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import React from 'react'
 
-import AppLayout from '@/components/layouts/app-layout'
 import Breadcrumbs from '@/features/comic/components/breadcrumb'
 import ComicContainer from '@/features/comic/container'
 import {
+  fetchCategories,
   fetchCategoryBySlug,
+  fetchChildCategories,
   fetchChildCategoryBySlug,
 } from '@/services/fetch/category'
 import { fetchComics } from '@/services/fetch/comic'
@@ -32,8 +33,15 @@ export default async function ChildCategoryPage({
   params,
   searchParams,
 }: Props) {
-  const [dataCategory, dataComics, dataChildCategory] = await Promise.all([
+  const [
+    dataCategory,
+    dataCategories,
+    dataComics,
+    dataChildCategory,
+    dataChildCategories,
+  ] = await Promise.all([
     await fetchCategoryBySlug(params.category),
+    fetchCategories(),
     await fetchComics(
       {
         page: searchParams.page ?? 1,
@@ -50,15 +58,29 @@ export default async function ChildCategoryPage({
       },
     ),
     await fetchChildCategoryBySlug(params.categoryChild),
+
+    fetchChildCategories(
+      {
+        filter: JSON.stringify({ category_slug: params?.category }),
+      },
+      {
+        cache: 'force-cache',
+      },
+    ),
   ])
 
   return (
-    <AppLayout>
+    <>
       <Breadcrumbs
         title={dataChildCategory?.name || ''}
         category={dataCategory}
       />
-      <ComicContainer params={params} dataComics={dataComics} />
-    </AppLayout>
+      <ComicContainer
+        params={params}
+        dataComics={dataComics}
+        dataCategories={dataCategories?.content}
+        dataChildCategories={dataChildCategories?.content}
+      />
+    </>
   )
 }

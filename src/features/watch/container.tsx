@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-import Loading from '@/app/loading'
+import Loading from '@/components/common/loading'
 import { fetchReadChapter } from '@/services/fetch/chapter'
 import { colors } from '@/utils/constants/setting'
 import type { IReadChapter } from '@/utils/types/interface/IChapter'

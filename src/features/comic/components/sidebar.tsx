@@ -4,15 +4,14 @@ import React from 'react'
 import Card from '@/components/common/card'
 import IconArrowRight from '@/components/icons/arrow-right'
 import IconList from '@/components/icons/list'
-import { fetchCategories } from '@/services/fetch/category'
+import type { ICategory } from '@/utils/types/interface/ICategory'
 
 type SidebarProps = {
   params?: { category: string; categoryChild?: string }
+  dataCategories?: ICategory[]
 }
 
-const Sidebar = async ({ params }: SidebarProps) => {
-  const dataCategories = await fetchCategories()
-
+const Sidebar = ({ dataCategories, params }: SidebarProps) => {
   return (
     <Card>
       <div className='mb-4 flex items-center gap-2'>
@@ -34,7 +33,7 @@ const Sidebar = async ({ params }: SidebarProps) => {
             <IconArrowRight width={14} height={8} />
           </span>
         </Link>
-        {dataCategories?.content.map((cat, idx) => {
+        {dataCategories?.map((cat, idx) => {
           const isActive = cat.slug === params?.category
           return (
             <Link

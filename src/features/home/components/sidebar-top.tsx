@@ -1,17 +1,15 @@
 import Link from 'next/link'
 import React from 'react'
 
-import { fetchComics } from '@/services/fetch/comic'
+import Card from '@/components/common/card'
+import IconArrowRight from '@/components/icons/arrow-right'
+import type { IComic } from '@/utils/types/interface/IComic'
 
-import Card from '../common/card'
-import IconArrowRight from '../icons/arrow-right'
+type SidebarTopProps = {
+  dataTopComics?: IComic[]
+}
 
-const SidebarTop = async () => {
-  const dataComicTops = await fetchComics({
-    limit: 10,
-    sort: ['["view", "DESC"]'],
-  })
-
+const SidebarTop = ({ dataTopComics }: SidebarTopProps) => {
   const renderStyleTop = (idx: number) => {
     switch (idx) {
       case 1:
@@ -44,7 +42,7 @@ const SidebarTop = async () => {
           </Link>
         </div>
         <div className='flex flex-col items-start gap-2'>
-          {dataComicTops?.content.map((item, idx) => {
+          {dataTopComics?.map((item, idx) => {
             return (
               <div key={idx} className='flex gap-2'>
                 <div
